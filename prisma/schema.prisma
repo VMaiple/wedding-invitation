@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Guest {
+  id                  String      @id @default(uuid())
+  name                String
+  email               String?
+  phone               String?
+  attendance          Boolean     @default(false)
+  message             String?
+  companions          Companion[]
+  dietaryRestrictions String?
+  specialRequests     String?
+  createdAt           DateTime    @default(now()) @map("created_at")
+  updatedAt           DateTime    @updatedAt @map("updated_at")
+
+  @@map("guests")
+}
+
+model Companion {
+  id                  String  @id @default(uuid())
+  guestId             String  @map("guest_id")
+  name                String
+  relationship        String?
+  dietaryRestrictions String?
+  guest               Guest   @relation(fields: [guestId], references: [id], onDelete: Cascade)
+
+  @@map("companions")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("admins")
+}

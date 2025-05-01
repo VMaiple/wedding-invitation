@@ -1,0 +1,14 @@
+<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Основа конверта -->
+  <rect x="10" y="30" width="180" height="110" rx="5" fill="#a6c1ee" stroke="#6a8fd1" stroke-width="2"/>
+
+  <!-- Клапан конверта -->
+  <path d="M10,30 L100,80 L190,30" fill="#f5e1c5" stroke="#6a8fd1" stroke-width="2"/>
+
+  <!-- Внутренняя часть конверта -->
+  <rect x="15" y="35" width="170" height="100" rx="3" fill="#ffffff" stroke="#eaeaea" stroke-width="1"/>
+
+  <!-- Декоративные элементы -->
+  <circle cx="100" cy="70" r="5" fill="#f5e1c5" stroke="#6a8fd1" stroke-width="1"/>
+  <path d="M95,70 Q100,75 105,70 Q100,65 95,70" fill="#f5e1c5" stroke="#6a8fd1" stroke-width="1"/>
+</svg>
